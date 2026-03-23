@@ -14,3 +14,11 @@ function updateCartCount() {
 }
 
 updateCartCount();
+
+function addToCart(product) {
+  cart.push(product);
+  localStorage.setItem("cart", JSON.stringify(cart));
+  updateCartCount();
+
+  alert("SUPPLY ADDED TO REQUEST");
+}
