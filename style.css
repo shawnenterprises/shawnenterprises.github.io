@@ -17,9 +17,6 @@ a {
   border-bottom: 1px solid #222;
   font-size: 14px;
 }
-.logo {
-  height: 5px;
-}
 
 .nav-left, .nav-right {
   display: flex;
@@ -31,6 +28,10 @@ a {
   left: 50%;
   transform: translateX(-50%);
   font-weight: bold;
+}
+
+.logo {
+  height: 5px;
 }
 
 .nav a:hover {
