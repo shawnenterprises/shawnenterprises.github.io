@@ -1,10 +1,10 @@
 let cart = JSON.parse(localStorage.getItem("cart")) || [];
 
-function addToCart(product) {
-  cart.push(product);
+function addToCart(name, size) {
+  cart.push({ name, size, qty: 1 });
   localStorage.setItem("cart", JSON.stringify(cart));
   updateCartCount();
-  alert("Added to cart");
+  alert("SUPPLY ADDED");
 }
 
 function updateCartCount() {
@@ -13,12 +13,10 @@ function updateCartCount() {
   });
 }
 
-updateCartCount();
-
-function addToCart(product) {
-  cart.push(product);
+function removeItem(index) {
+  cart.splice(index, 1);
   localStorage.setItem("cart", JSON.stringify(cart));
-  updateCartCount();
-
-  alert("SUPPLY ADDED TO REQUEST");
+  location.reload();
 }
+
+updateCartCount();
