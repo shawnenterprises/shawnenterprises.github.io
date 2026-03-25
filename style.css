@@ -223,6 +223,9 @@ a:hover, button:hover {
 
 .product-card img {
   width: 100%;
+
+  height: 70px;
+}
   background: black;
 }
 
