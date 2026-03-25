@@ -7,43 +7,61 @@
 
 <body>
 
-<div style="padding:20px;">
-<h2>SUPPLY REQUEST</h2>
+<!-- NAV HERE -->
+
+<div class="cart-container">
+
+<h2>CART</h2>
+
+<div class="cart-header">
+<p>PRODUCT</p>
+<p>QUANTITY</p>
+<p>TOTAL</p>
+</div>
 
 <div id="cart-items"></div>
 
-<br>
+<div class="cart-footer">
+<p>Total: $<span id="total"></span></p>
+<button onclick="checkout()">CHECKOUT</button>
+</div>
 
-<button onclick="checkout()">Proceed to Checkout</button>
 </div>
 
 <script>
 let cart = JSON.parse(localStorage.getItem("cart")) || [];
 let container = document.getElementById("cart-items");
+let total = 0;
 
 cart.forEach((item, index) => {
+  let price = 45; // change later dynamically
+  total += price;
+
   let div = document.createElement("div");
+  div.className = "cart-row";
 
   div.innerHTML = `
-    ${item.name} - Size ${item.size}
-    <button onclick="removeItem(${index})">Remove</button>
+    <p>${item.name}</p>
+    <input type="number" value="1">
+    <p>$${price}</p>
+    <button onclick="removeItem(${index})">X</button>
   `;
 
   container.appendChild(div);
 });
 
-function removeItem(index) {
-  cart.splice(index, 1);
+document.getElementById("total").innerText = total;
+
+function removeItem(index){
+  cart.splice(index,1);
   localStorage.setItem("cart", JSON.stringify(cart));
   location.reload();
 }
 
-function checkout() {
+function checkout(){
   window.location.href = "https://buy.stripe.com/YOUR-LINK";
 }
 </script>
-
-<script src="cart.js"></script>
 
 </body>
 </html>
