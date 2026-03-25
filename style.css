@@ -208,3 +208,30 @@ a:hover, button:hover {
   background: black;
   color: #fdd200;
 }
+
+.product-grid {
+  display: flex;
+  justify-content: space-between;
+  padding: 40px;
+  background: black;
+}
+
+.product-card {
+  width: 30%;
+  text-align: center;
+}
+
+.product-card img {
+  width: 100%;
+  background: black;
+}
+
+.product-name {
+  font-size: 11px;
+  margin-top: 10px;
+}
+
+.product-price {
+  font-size: 11px;
+  margin-top: 5px;
+}
