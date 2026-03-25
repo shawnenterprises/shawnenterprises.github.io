@@ -145,3 +145,21 @@ a:hover, button:hover {
     grid-template-columns: repeat(2, 1fr);
   }
 }
+
+.cart-container {
+  padding: 40px;
+}
+
+.cart-header, .cart-row {
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr auto;
+  margin-bottom: 15px;
+}
+
+.cart-row input {
+  width: 50px;
+}
+
+.cart-footer {
+  margin-top: 30px;
+}
