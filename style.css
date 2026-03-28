@@ -241,3 +241,30 @@ a:hover, button:hover {
   opacity: 0.7;
   margin-top: 5px;
 }
+
+.product-card {
+  position: relative;
+}
+
+.main-img {
+  display: block;
+}
+
+.hover-img {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  width: 80%;
+  max-width: 260px;
+}
+
+.product-card:hover .hover-img {
+  opacity: 1;
+}
+
+.product-card:hover .main-img {
+  opacity: 0;
+}
