@@ -277,3 +277,17 @@ a:hover, button:hover {
   background: #fdd200;
   color: black;
 }
+
+body {
+  background: black;
+  color: #fdd200;
+  font-family: Arial, sans-serif;
+}
+
+h1, h2, h3 {
+  letter-spacing: 1px;
+}
+
+p {
+  line-height: 1.5;
+}
