@@ -4,13 +4,6 @@ body {
   font-family: Courier, monospace;
 }
 
-h1, h2, h3 {
-  letter-spacing: 1px;
-}
-
-p {
-  line-height: 1.5;
-}
 a {
   color: #fdd200;
   text-decoration: none;
