@@ -272,3 +272,8 @@ a:hover, button:hover {
 .product-card:hover .main-img {
   opacity: 0;
 }
+
+.sizes button.active {
+  background: #fdd200;
+  color: black;
+}
