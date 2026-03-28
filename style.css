@@ -1,10 +1,16 @@
 body {
-  margin: 0;
   background: black;
   color: #fdd200;
-  font-family: Courier, monospace;
+  font-family: Courier, Monospace;
 }
 
+h1, h2, h3 {
+  letter-spacing: 1px;
+}
+
+p {
+  line-height: 1.5;
+}
 a {
   color: #fdd200;
   text-decoration: none;
@@ -276,20 +282,6 @@ a:hover, button:hover {
 .sizes button.active {
   background: #fdd200;
   color: black;
-}
-
-body {
-  background: black;
-  color: #fdd200;
-  font-family: Arial, sans-serif;
-}
-
-h1, h2, h3 {
-  letter-spacing: 1px;
-}
-
-p {
-  line-height: 1.5;
 }
 
 @media (max-width: 768px) {
