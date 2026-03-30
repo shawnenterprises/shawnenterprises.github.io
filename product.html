@@ -68,13 +68,6 @@
         ADD TO CART
       </button>
 
-      <button
-        type="button"
-        class="buy-btn"
-        onclick="goToCartPage()">
-        BUY NOW
-      </button>
-
       <p class="desc">
         Heavyweight hoodie designed for everyday wear.
       </p>
@@ -128,9 +121,9 @@
 
     <div class="cart-drawer-footer">
       <p class="cart-tax-note">Taxes &amp; Duties Included</p>
-      <button class="checkout-btn" onclick="goToCartPage()">
-        CHECKOUT · $<span id="cartDrawerTotal">0.00</span>
-      </button>
+      <button class="checkout-btn" onclick="window.location.href='checkout.html'">
+  CHECKOUT · $<span id="cartDrawerTotal">0.00</span>
+</button>
     </div>
   </aside>
 
