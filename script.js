@@ -29,11 +29,27 @@ function register() {
 
 let selectedSize = "M";
 
-function selectSize(el){
-  document.querySelectorAll(".sizes button").forEach(btn=>{
-    btn.classList.remove("active");
-  });
+document.addEventListener("DOMContentLoaded", () => {
+  const sizeButtons = document.querySelectorAll(".size-btn");
 
-  el.classList.add("active");
-  selectedSize = el.innerText;
+  sizeButtons.forEach(button => {
+    button.addEventListener("click", () => {
+      sizeButtons.forEach(btn => btn.classList.remove("active"));
+      button.classList.add("active");
+      selectedSize = button.dataset.size;
+    });
+  });
+});
+
+function handleAddToCart() {
+  addToCart(
+    "RHINESTONE",
+    selectedSize,
+    35.00,
+    "IMG_2353.PNG"
+  );
+}
+
+function goToCartPage() {
+  window.location.href = "cart.html";
 }
