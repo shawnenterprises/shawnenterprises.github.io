@@ -657,3 +657,16 @@ a:hover, button:hover {
     height: 96px;
   }
 }
+
+a {
+  color: #fdd200;
+  text-decoration: none;
+}
+
+a:visited {
+  color: #fdd200;
+}
+
+a:hover {
+  opacity: 0.7;
+}
