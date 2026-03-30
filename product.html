@@ -1,101 +1,140 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>Product</title>
-<link rel="stylesheet" href="style.css">
+  <title>Product</title>
+  <link rel="stylesheet" href="style.css">
 </head>
-
 <body>
 
-<!-- NAV HERE -->
-
-<div class="product-page">
-
-<div class="product-images">
-<img src="IMG_2214.jpeg">
-<img src="IMG_2211.jpg">
-</div>
-
-<div class="product-info">
-
-<h2>RHINESTONE</h2>
-
-<p class="price">$35.00</p>
-
-<p class="desc">
-The model is 5'9" wearing a size M
-</p>
-
-  <div class="sizes">
-<button onclick="selectSize(this)">S</button>
-<button onclick="selectSize(this)">M</button>
-<button onclick="selectSize(this)">L</button>
-<button onclick="selectSize(this)">XL</button>
-</div>
-
-<button onclick="addToCart('RHINESTONE', selectedSize, 35.00, 'IMG_2353.PNG')">
-  ADD TO CART
-</button>
-<p class="meta">
-  
-Free shipping over $75<br>
-Ships in 3–5 days
-</p>
-
-</div>
-
-</div>
-<div class="cart-overlay" id="cartOverlay" onclick="closeCartDrawer()"></div>
-
-<aside class="cart-drawer" id="cartDrawer">
-  <div class="cart-drawer-header">
-    <h2>CART</h2>
-    <button class="cart-close" onclick="closeCartDrawer()">×</button>
-  </div>
-
-  <div class="shipping-status-wrap">
-    <p class="shipping-status-text" id="shippingStatusText">
-      SPEND $75 MORE AND GET FREE SHIPPING
-    </p>
-    <div class="shipping-progress">
-      <div class="shipping-progress-bar" id="shippingProgressBar"></div>
+  <header class="site-nav">
+    <div class="nav-left">
+      <a href="index.html">Home</a>
+      <a href="shop.html">Shop</a>
+      <a href="lookbook.html">Lookbook</a>
+      <a href="about.html">About</a>
+      <a href="contact.html">Contact</a>
     </div>
-  </div>
 
-  <div class="cart-drawer-body">
-    <div id="cartDrawerItems"></div>
+    <div class="nav-center">
+      <a href="index.html" class="logo-link">
+        <img src="Untitled_Project__3_-removebg-preview.png" alt="Contradict" class="logo">
+      </a>
+    </div>
 
-    <div class="cart-divider"></div>
+    <div class="nav-right">
+      <a href="map.html">City Map</a>
+      <a href="#registry">Citizen Registry</a>
+      <a href="search.html">Search</a>
+      <a href="javascript:void(0)" class="cart-link" onclick="openCartDrawer()">
+        Cart (<span id="cart-count">0</span>)
+      </a>
+    </div>
+  </header>
 
-    <div class="more-products-section">
-      <h3>MORE PRODUCTS</h3>
-      <div class="more-products-list">
+  <main class="product-page">
+    <div class="product-images">
+      <img src="IMG_2353.PNG" alt="RHINESTONE front">
+      <img src="IMG_2211.jpg" alt="RHINESTONE back">
+    </div>
 
-        <!-- FUTURE PRODUCT CARD TEMPLATE -->
-        <div class="more-product-card">
-          <a href="product.html" class="more-product-image-link">
-            <img src="your-image.jpg" alt="Product">
-          </a>
-          <div class="more-product-info">
-            <p class="more-product-name">PRODUCT NAME</p>
-            <p class="more-product-price">$00.00</p>
-          </div>
-          <button class="more-product-add">ADD +</button>
+    <div class="product-info">
+      <h2>RHINESTONE</h2>
+      <p class="price"><s>$35
+
+      <p>Only 12 left</p>
+
+      <p class="trust-copy">
+        ✓ Free returns (14 days)<br>
+        ✓ Ships in 3–5 days<br>
+        ✓ Secure checkout
+      </p>
+
+      <p>Model is 5’9 wearing size M</p>
+
+      <div class="size-section">
+        <p class="size-label">Size</p>
+        <div class="sizes">
+          <button type="button" class="size-btn" data-size="S">S</button>
+          <button type="button" class="size-btn active" data-size="M">M</button>
+          <button type="button" class="size-btn" data-size="L">L</button>
+          <button type="button" class="size-btn" data-size="XL">XL</button>
         </div>
+      </div>
 
-        <!-- DUPLICATE THIS BLOCK LATER FOR MORE PRODUCTS -->
+      <button
+        type="button"
+        class="add-btn"
+        onclick="handleAddToCart()">
+        ADD TO CART
+      </button>
 
+      <button
+        type="button"
+        class="buy-btn"
+        onclick="goToCartPage()">
+        BUY NOW
+      </button>
+
+      <p class="desc">
+        Heavyweight hoodie designed for everyday wear.
+      </p>
+
+      <p class="meta">
+        Issued within Contradict City<br>
+        Collection: Sector 04<br>
+        Issued: 03.2026
+      </p>
+    </div>
+  </main>
+
+  <div class="cart-overlay" id="cartOverlay" onclick="closeCartDrawer()"></div>
+
+  <aside class="cart-drawer" id="cartDrawer">
+    <div class="cart-drawer-header">
+      <h2>CART</h2>
+      <button class="cart-close" onclick="closeCartDrawer()">×</button>
+    </div>
+
+    <div class="shipping-status-wrap">
+      <p class="shipping-status-text" id="shippingStatusText">
+        SPEND $75.00 MORE AND GET FREE SHIPPING
+      </p>
+      <div class="shipping-progress">
+        <div class="shipping-progress-bar" id="shippingProgressBar"></div>
       </div>
     </div>
-  </div>
 
-  <div class="cart-drawer-footer">
-    <p class="cart-tax-note">Taxes &amp; Duties Included</p>
-    <button class="checkout-btn" onclick="checkout()">
-      CHECKOUT · $<span id="cartDrawerTotal">0.00</span>
-    </button>
-  </div>
-</aside>
+    <div class="cart-drawer-body">
+      <div id="cartDrawerItems"></div>
+
+      <div class="cart-divider"></div>
+
+      <div class="more-products-section">
+        <h3>MORE PRODUCTS</h3>
+        <div class="more-products-list">
+          <div class="more-product-card">
+            <a href="product.html" class="more-product-image-link">
+              <img src="your-image.jpg" alt="Product">
+            </a>
+            <div class="more-product-info">
+              <p class="more-product-name">PRODUCT NAME</p>
+              <p class="more-product-price">$00.00</p>
+            </div>
+            <button class="more-product-add">ADD +</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="cart-drawer-footer">
+      <p class="cart-tax-note">Taxes &amp; Duties Included</p>
+      <button class="checkout-btn" onclick="goToCartPage()">
+        CHECKOUT · $<span id="cartDrawerTotal">0.00</span>
+      </button>
+    </div>
+  </aside>
+
   <script src="cart.js"></script>
+  <script src="script.js"></script>
 </body>
 </html>
