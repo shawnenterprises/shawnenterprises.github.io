@@ -17,7 +17,7 @@
   </div>
 </div> 
 
-<header class="site-nav">
+<header class="site-nav desktop-nav">
   <div class="nav-left">
     <a href="index.html">Home</a>
     <a href="shop.html">Shop</a>
@@ -40,6 +40,29 @@
   Cart <span id="cart-count">0</span>
 </a>
     
+  </div>
+</header>
+
+  <header class="mobile-nav">
+  <div class="mobile-nav-top">
+    <button class="mobile-icon-btn" onclick="toggleMobileMenu()">☰</button>
+    <button class="mobile-icon-btn">⌕</button>
+
+    <a href="index.html" class="mobile-logo-link">
+      <img src="Untitled_Project__3_-removebg-preview.png" alt="Contradict" class="mobile-logo">
+    </a>
+
+    <a href="javascript:void(0)" class="mobile-icon-btn">☆</a>
+    <a href="javascript:void(0)" class="mobile-icon-btn" onclick="openCartDrawer()">
+      Cart (<span id="cart-count-mobile">0</span>)
+    </a>
+  </div>
+
+  <div class="mobile-category-bar">
+    <a href="shop.html">New Arrivals</a>
+    <a href="shop.html">Best Sellers</a>
+    <a href="shop.html">Hoodies</a>
+    <a href="shop.html">Tees</a>
   </div>
 </header>
   
