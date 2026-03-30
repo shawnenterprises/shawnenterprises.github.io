@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Checkout — Contradict</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body class="checkout-page-body">
+
+  <header class="site-nav">
+    <div class="nav-left">
+      <a href="index.html">Home</a>
+      <a href="shop.html">Shop</a>
+      <a href="lookbook.html">Lookbook</a>
+      <a href="about.html">About</a>
+      <a href="contact.html">Contact</a>
+    </div>
+
+    <div class="nav-center">
+      <a href="index.html" class="logo-link">
+        <img src="logo.png" alt="Contradict" class="logo">
+      </a>
+    </div>
+
+    <div class="nav-right">
+      <a href="map.html">City Map</a>
+      <a href="#registry">Citizen Registry</a>
+      <a href="search.html">Search</a>
+      <a href="javascript:void(0)" class="cart-link" onclick="openCartDrawer()">
+        Cart (<span id="cart-count">0</span>)
+      </a>
+    </div>
+  </header>
+
+  <main class="checkout-layout">
+    <section class="checkout-left">
+      <div class="checkout-section">
+        <p class="checkout-breadcrumb">Cart / Information / Shipping / Payment</p>
+        <h1 class="checkout-title">CHECKOUT</h1>
+      </div>
+
+      <div class="checkout-section">
+        <h2>Contact</h2>
+        <div class="checkout-field">
+          <label>Email</label>
+          <input type="email" placeholder="Enter your email">
+        </div>
+      </div>
+
+      <div class="checkout-section">
+        <h2>Delivery</h2>
+
+        <div class="checkout-grid two-col">
+          <div class="checkout-field">
+            <label>First name</label>
+            <input type="text" placeholder="First name">
+          </div>
+
+          <div class="checkout-field">
+            <label>Last name</label>
+            <input type="text" placeholder="Last name">
+          </div>
+        </div>
+
+        <div class="checkout-field">
+          <label>Address</label>
+          <input type="text" placeholder="Street address">
+        </div>
+
+        <div class="checkout-field">
+          <label>Apartment, suite, etc. (optional)</label>
+          <input type="text" placeholder="Apartment, suite, etc.">
+        </div>
+
+        <div class="checkout-grid three-col">
+          <div class="checkout-field">
+            <label>City</label>
+            <input type="text" placeholder="City">
+          </div>
+
+          <div class="checkout-field">
+            <label>State</label>
+            <input type="text" placeholder="State">
+          </div>
+
+          <div class="checkout-field">
+            <label>ZIP code</label>
+            <input type="text" placeholder="ZIP code">
+          </div>
+        </div>
+
+        <div class="checkout-field">
+          <label>Phone</label>
+          <input type="text" placeholder="Phone number">
+        </div>
+      </div>
+
+      <div class="checkout-section">
+        <h2>Shipping Method</h2>
+        <div class="checkout-option active-option">
+          <div>
+            <p class="option-title">Standard Shipping</p>
+            <p class="option-sub">Delivered in 3–5 business days</p>
+          </div>
+          <span>$0.00</span>
+        </div>
+      </div>
+
+      <div class="checkout-section">
+        <h2>Payment</h2>
+        <p class="checkout-note">Secure checkout powered by your payment provider.</p>
+
+        <div class="checkout-field">
+          <label>Payment Link</label>
+          <input type="text" id="stripeLinkInput" placeholder="Paste your Stripe checkout link here">
+        </div>
+
+        <button class="checkout-submit" onclick="goToStripeLink()">
+          COMPLETE PAYMENT
+        </button>
+
+        <p class="checkout-note small-note">
+          When you get your Stripe link, paste it into the input above.
+        </p>
+      </div>
+    </section>
+
+    <aside class="checkout-right">
+      <div class="order-summary-box">
+        <h2>Order Summary</h2>
+
+        <div id="checkoutItems"></div>
+
+        <div class="discount-row">
+          <input type="text" placeholder="Discount code">
+          <button>Apply</button>
+        </div>
+
+        <div class="summary-lines">
+          <div class="summary-line">
+            <span>Subtotal</span>
+            <span>$<span id="checkoutSubtotal">0.00</span></span>
+          </div>
+
+          <div class="summary-line">
+            <span>Shipping</span>
+            <span id="checkoutShipping">Calculated at next step</span>
+          </div>
+
+          <div class="summary-line total-line">
+            <span>Total</span>
+            <span>$<span id="checkoutTotal">0.00</span></span>
+          </div>
+        </div>
+      </div>
+    </aside>
+  </main>
+
+  <div class="cart-overlay" id="cartOverlay" onclick="closeCartDrawer()"></div>
+
+  <aside class="cart-drawer" id="cartDrawer">
+    <div class="cart-drawer-header">
+      <h2>CART</h2>
+      <button class="cart-close" onclick="closeCartDrawer()">×</button>
+    </div>
+
+    <div class="shipping-status-wrap">
+      <p class="shipping-status-text" id="shippingStatusText"></p>
+      <div class="shipping-progress">
+        <div class="shipping-progress-bar" id="shippingProgressBar"></div>
+      </div>
+    </div>
+
+    <div class="cart-drawer-body">
+      <div id="cartDrawerItems"></div>
+
+      <div class="cart-divider"></div>
+
+      <div class="more-products-section">
+        <h3>MORE PRODUCTS</h3>
+        <div class="more-products-list">
+          <div class="more-product-card">
+            <a href="product.html" class="more-product-image-link">
+              <img src="your-image.jpg" alt="Product">
+            </a>
+            <div class="more-product-info">
+              <p class="more-product-name">PRODUCT NAME</p>
+              <p class="more-product-price">$00.00</p>
+            </div>
+            <button class="more-product-add">ADD +</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="cart-drawer-footer">
+      <p class="cart-tax-note">Taxes &amp; Duties Included</p>
+      <button class="checkout-btn" onclick="window.location.href='checkout.html'">
+        CHECKOUT · $<span id="cartDrawerTotal">0.00</span>
+      </button>
+    </div>
+  </aside>
+
+  <script src="cart.js"></script>
+  <script>
+    function renderCheckoutPage() {
+      const itemsContainer = document.getElementById("checkoutItems");
+      const subtotalEl = document.getElementById("checkoutSubtotal");
+      const totalEl = document.getElementById("checkoutTotal");
+
+      if (!itemsContainer || typeof cart === "undefined") return;
+
+      itemsContainer.innerHTML = "";
+
+      if (cart.length === 0) {
+        itemsContainer.innerHTML = `<p class="checkout-empty">Your cart is empty.</p>`;
+        subtotalEl.textContent = "0.00";
+        totalEl.textContent = "0.00";
+        return;
+      }
+
+      let subtotal = 0;
+
+      cart.forEach(item => {
+        subtotal += item.price * item.qty;
+
+        const row = document.createElement("div");
+        row.className = "checkout-item";
+
+        row.innerHTML = `
+          <img src="${item.image}" alt="${item.name}" class="checkout-item-image">
+          <div class="checkout-item-info">
+            <p class="checkout-item-name">${item.name}</p>
+            <p class="checkout-item-meta">Size: ${item.size}</p>
+            <p class="checkout-item-meta">Qty: ${item.qty}</p>
+          </div>
+          <div class="checkout-item-price">$${(item.price * item.qty).toFixed(2)}</div>
+        `;
+
+        itemsContainer.appendChild(row);
+      });
+
+      subtotalEl.textContent = subtotal.toFixed(2);
+      totalEl.textContent = subtotal.toFixed(2);
+    }
+
+    function goToStripeLink() {
+      const input = document.getElementById("stripeLinkInput");
+      const link = input.value.trim();
+
+      if (!link) {
+        alert("Paste your Stripe checkout link first.");
+        return;
+      }
+
+      window.location.href = link;
+    }
+
+    document.addEventListener("DOMContentLoaded", renderCheckoutPage);
+  </script>
+</body>
+</html>
