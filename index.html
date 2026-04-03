@@ -3,39 +3,63 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Contradict</title>
-  <link rel="stylesheet" href="style.css">
+<head>
+<title>CONTRADICT</title>
+<link rel="stylesheet" href="style.css">
 </head>
 <body>
+<div class="intro" id="intro">
+<h2>INITIALIZING CONTRADICT CITY...</h2>
+</div>
+  
+<div class="ticker">
+  <div class="ticker-track">
+    <span>TRANSMISSIONS: FREE SHIPPING OVER $70 — NEW DROP LIVE — LIMITED STOCK — </span>
+    <span>TRANSMISSIONS: FREE SHIPPING OVER $70 — NEW DROP LIVE — LIMITED STOCK — </span>
+  </div>
+</div> 
 
-  <!-- DESKTOP NAV -->
-  <header class="site-nav desktop-nav">
-    <div class="nav-left">
-      <a href="index.html">Home</a>
-      <a href="map.html">City Map</a>
-      <a href="#registry">Citizen Registry</a>
-      <a href="search.html">Search</a>
-      <a href="javascript:void(0)" class="cart-link" onclick="openCartDrawer()">
-        Cart (<span id="cart-count">0</span>)
-      </a>
-    </div>
+<header class="site-nav desktop-nav">
+  <div class="nav-left">
+    <a href="index.html">Home</a>
+    <a href="shop.html">Shop</a>
+    <a href="lookbook.html">Lookbook</a>
+    <a href="about.html">About</a>
+    <a href="contact.html">Contact</a>
+  </div>
 
-    <div class="nav-center">
-      <a href="index.html" class="logo-link">
-        <img src="logo.png" alt="Contradict" class="logo">
-      </a>
-    </div>
+  <div class="nav-center">
+    <a href="index.html" class="logo-link">
+      <img src="Untitled_Project__3_-removebg-preview.png" alt="Contradict" class="logo">
+    </a>
+  </div>
 
-    <div class="nav-right">
-      <a href="shop.html">Shop</a>
-      <a href="lookbook.html">Lookbook</a>
-      <a href="about.html">About</a>
-      <a href="contact.html">Contact</a>
-    </div>
-  </header>
+  <div class="nav-right">
+    <a href="map.html">City Map</a>
+    <a href="#registry">Citizen Registry</a>
+    <a href="search.html">Search</a>
+    <a href="javascript:void(0)" class="cart-link" onclick="openCartDrawer()">
+  Cart <span id="cart-count">0</span>
+</a>    
+  </div>
+</header>
 
-  <!-- MOBILE NAV -->
   <header class="mobile-nav">
+  <div class="mobile-nav-top">
+    <button class="mobile-icon-btn" onclick="toggleMobileMenu()">☰</button>
+    <button class="mobile-icon-btn">⌕</button>
+
+    <a href="index.html" class="mobile-logo-link">
+      <img src="Untitled_Project__3_-removebg-preview.png" alt="Contradict" class="mobile-logo">
+    </a>
+
+    <a href="javascript:void(0)" class="mobile-icon-btn">☆</a>
+    <a href="javascript:void(0)" class="mobile-icon-btn" onclick="openCartDrawer()">
+      Cart (<span id="cart-count-mobile">0</span>)
+    </a>
+  </div>
+
+ <header class="mobile-nav">
     <div class="mobile-nav-top">
       <button class="mobile-icon-btn" onclick="toggleMobileMenu()">☰</button>
 
@@ -69,166 +93,89 @@
       <a href="shop.html">Tees</a>
     </div>
   </header>
+    
+</div>
+<div class="hero">
+<div>
+<h1>CONTRADICT</h1>
+<p>Made to deny the world by asserting the opposite.</p>
+<a href="shop.html">Shop Now</a>
+  <section class="hero">
+  <img src="Copilot_20260319_184936.png" alt="Contradict hero" class="hero-image">
+  <div class="hero-overlay">
+    <h1>CONTRADICT</h1>
+    <p>Live Now</p>
+    <a href="shop.html" class="hero-btn">Shop</a>
+  </div>
+</section>
+</div>
+</div>
 
-  <!-- TOP BANNER -->
-  <div class="transmissions-bar">
-    <span>TRANSMISSIONS: FREE SHIPPING OVER $75</span>
+<div class="product-grid">
+
+<div class="product-card">
+<a href="product.html">
+<img src="IMG_2353.PNG" class="main-img">
+<img src="IMG_2211.jpg" class="hover-img">
+</a>
+
+<p class="product-name">RHINESTONE</p>
+<p class="product-price">$35.00</p>
+</div>
+
+</div>
+
+<div class="footer">
+<p>Free Returns | Secure Checkout | Fast Shipping</p>
+<p><a href="#">Privacy Policy</a> | <a href="#">Returns</a></p>
+</div>
+
+<div class="cart-overlay" id="cartOverlay" onclick="closeCartDrawer()"></div>
+
+<aside class="cart-drawer" id="cartDrawer">
+  <div class="cart-drawer-header">
+    <h2>CART</h2>
+    <button class="cart-close" onclick="closeCartDrawer()">×</button>
   </div>
 
-  <!-- HERO -->
-  <section class="hero">
-    <img src="Untitled_Project__3_-removebg-preview.png" alt="Contradict Hero" class="hero-image">
-    <div class="hero-overlay">
-      <p class="hero-kicker">Contradict City</p>
-      <h1>NOT MADE TO FIT IN.</h1>
-      <p class="hero-sub">Made to stand out.</p>
-      <a href="shop.html" class="hero-btn">Shop</a>
+  <div class="shipping-status-wrap">
+    <p class="shipping-status-text" id="shippingStatusText"></p>
+    <div class="shipping-progress">
+      <div class="shipping-progress-bar" id="shippingProgressBar"></div>
     </div>
-  </section>
+  </div>
 
-  <!-- FEATURED PRODUCTS -->
-  <section class="homepage-section">
-    <div class="section-header">
-      <h2>NEW ARRIVALS</h2>
-      <a href="shop.html" class="section-link">+ VIEW ALL</a>
-    </div>
+  <div class="cart-drawer-body">
+    <div id="cartDrawerItems"></div>
 
-    <div class="section-tabs">
-      <a href="shop.html">View All</a>
-      <a href="shop.html">Hoodies</a>
-      <a href="shop.html">Tees</a>
-      <a href="shop.html">Accessories</a>
-    </div>
+    <div class="cart-divider"></div>
 
-    <div class="product-grid">
-
-      <div class="product-card">
-        <a href="product.html" class="product-image-wrap">
-          <img src="IMG_2353.PNG" alt="RHINESTONE" class="main-img">
-          <img src="IMG_2214.jpeg" alt="RHINESTONE Back" class="hover-img">
-        </a>
-        <p class="product-name">RHINESTONE</p>
-        <p class="product-price">$35.00</p>
-      </div>
-    </div>
-  </section>
-
-  <!-- LOOKBOOK BLOCK -->
-  <section class="lookbook-home">
-    <div class="lookbook-home-image">
-      <img src="lookbook-cover.jpg" alt="Contradict Lookbook">
-    </div>
-    <div class="lookbook-home-copy">
-      <p class="lookbook-label">CONTRADICT MAGAZINE</p>
-      <h2>ISSUE 001</h2>
-      <p>Editorials, uniforms, incidents, and visuals from Contradict City.</p>
-      <a href="lookbook.html" class="minimal-btn">View Lookbook</a>
-    </div>
-  </section>
-
-  <!-- ABOUT STRIP -->
-  <section class="about-strip">
-    <h2>ABOUT CONTRADICT</h2>
-    <p>
-      Contradict is built for people who don’t follow expectations. Clean silhouettes,
-      strong identity, and a world underneath the clothing.
-    </p>
-    <a href="about.html" class="text-link">Read More</a>
-  </section>
-
-  <!-- REGISTRY -->
-  <section class="registry-section" id="registry">
-    <div class="registry-inner">
-      <p class="registry-label">CITIZEN REGISTRY</p>
-      <h2>Join for early access to drops and transmissions.</h2>
-
-      <div class="registry-form">
-        <input type="email" placeholder="Enter your email">
-        <button onclick="register()">Register</button>
-      </div>
-
-      <p id="status" class="registry-status"></p>
-    </div>
-  </section>
-
-  <!-- INSTAGRAM / SOCIAL BLOCK -->
-  <section class="social-strip">
-    <div class="section-header">
-      <h2>INSTAGRAM</h2>
-      <a href="https://instagram.com/contradictapparel" target="_blank" class="section-link">@CONTRADICT</a>
-    </div>
-
-    <div class="social-grid">
-      <a href="#"><img src="ig1.jpg" alt="Instagram 1"></a>
-      <a href="#"><img src="ig2.jpg" alt="Instagram 2"></a>
-      <a href="#"><img src="ig3.jpg" alt="Instagram 3"></a>
-      <a href="#"><img src="ig4.jpg" alt="Instagram 4"></a>
-    </div>
-  </section>
-
-  <!-- FOOTER -->
-  <footer class="site-footer">
-    <div class="footer-links">
-      <a href="shop.html">Shop</a>
-      <a href="lookbook.html">Lookbook</a>
-      <a href="about.html">About</a>
-      <a href="contact.html">Contact</a>
-      <a href="shipping.html">Shipping</a>
-      <a href="returns.html">Returns</a>
-      <a href="privacy.html">Privacy Policy</a>
-      <a href="terms.html">Terms &amp; Conditions</a>
-    </div>
-
-    <p class="footer-copy">© CONTRADICT CITY</p>
-  </footer>
-
-  <!-- CART DRAWER -->
-  <div class="cart-overlay" id="cartOverlay" onclick="closeCartDrawer()"></div>
-
-  <aside class="cart-drawer" id="cartDrawer">
-    <div class="cart-drawer-header">
-      <h2>CART</h2>
-      <button class="cart-close" onclick="closeCartDrawer()">×</button>
-    </div>
-
-    <div class="shipping-status-wrap">
-      <p class="shipping-status-text" id="shippingStatusText"></p>
-      <div class="shipping-progress">
-        <div class="shipping-progress-bar" id="shippingProgressBar"></div>
-      </div>
-    </div>
-
-    <div class="cart-drawer-body">
-      <div id="cartDrawerItems"></div>
-
-      <div class="cart-divider"></div>
-
-      <div class="more-products-section">
-        <h3>MORE PRODUCTS</h3>
-        <div class="more-products-list">
-          <div class="more-product-card">
-            <a href="product.html" class="more-product-image-link">
-              <img src="your-image.jpg" alt="Product">
-            </a>
-            <div class="more-product-info">
-              <p class="more-product-name">PRODUCT NAME</p>
-              <p class="more-product-price">$00.00</p>
-            </div>
-            <button class="more-product-add">ADD +</button>
+    <div class="more-products-section">
+      <h3>MORE PRODUCTS</h3>
+      <div class="more-products-list">
+        <div class="more-product-card">
+          <a href="product.html" class="more-product-image-link">
+            <img src="your-image.jpg" alt="Product">
+          </a>
+          <div class="more-product-info">
+            <p class="more-product-name">PRODUCT NAME</p>
+            <p class="more-product-price">$00.00</p>
           </div>
+          <button class="more-product-add">ADD +</button>
         </div>
       </div>
     </div>
+  </div>
 
-    <div class="cart-drawer-footer">
-      <p class="cart-tax-note">Taxes &amp; Duties Included</p>
-      <button class="checkout-btn" onclick="window.location.href='checkout.html'">
-        CHECKOUT · $<span id="cartDrawerTotal">0.00</span>
-      </button>
-    </div>
-  </aside>
-
+  <div class="cart-drawer-footer">
+    <p class="cart-tax-note">Taxes &amp; Duties Included</p>
+    <button class="checkout-btn" onclick="window.location.href='checkout.html'">
+      CHECKOUT · $<span id="cartDrawerTotal">0.00</span>
+    </button>
+  </div>
+</aside>
   <script src="cart.js"></script>
-  <script src="script.js"></script>
+<script src="script.js"></script>
+  
 </body>
 </html>
