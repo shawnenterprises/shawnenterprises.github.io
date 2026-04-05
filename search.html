@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Search - Contradict</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <div class="transmissions-bar">
+    TRANSMISSIONS: FREE SHIPPING OVER $70 — NEW DROP LIVE
+  </div>
+
+  <header class="site-nav">
+    <div class="nav-left">
+      <a href="index.html">Home</a>
+      <a href="shop.html">Shop</a>
+      <a href="lookbook.html">Lookbook</a>
+      <a href="about.html">About</a>
+      <a href="contact.html">Contact</a>
+    </div>
+
+    <div class="nav-center">
+      <a href="index.html" class="logo-link">
+        <img src="Untitled_Project__3_-removebg-preview.png" alt="Contradict" class="logo">
+      </a>
+    </div>
+
+    <div class="nav-right">
+      <a href="map.html">City Map</a>
+      <a href="#registry">Citizen Registry</a>
+      <a href="search.html">Search</a>
+      <a href="javascript:void(0)" class="cart-link" onclick="openCartDrawer()">
+        Cart (<span id="cart-count">0</span>)
+      </a>
+    </div>
+  </header>
+
+  <main class="search-page">
+    <div class="search-header">
+      <h1>SEARCH</h1>
+      <p>Find products in Contradict City.</p>
+    </div>
+
+    <div class="search-box-wrap">
+      <input
+        type="text"
+        id="searchInput"
+        class="search-input"
+        placeholder="Search products..."
+      >
+    </div>
+
+    <div id="searchResults" class="shop-grid"></div>
+  </main>
+
+  <div class="cart-overlay" id="cartOverlay" onclick="closeCartDrawer()"></div>
+
+  <aside class="cart-drawer" id="cartDrawer">
+    <div class="cart-drawer-header">
+      <h2>CART</h2>
+      <button class="cart-close" onclick="closeCartDrawer()">×</button>
+    </div>
+
+    <div class="shipping-status-wrap">
+      <p class="shipping-status-text" id="shippingStatusText"></p>
+      <div class="shipping-progress">
+        <div class="shipping-progress-bar" id="shippingProgressBar"></div>
+      </div>
+    </div>
+
+    <div class="cart-drawer-body">
+      <div id="cartDrawerItems"></div>
+    </div>
+
+    <div class="cart-drawer-footer">
+      <p class="cart-tax-note">Taxes &amp; Duties Included</p>
+      <button class="checkout-btn" onclick="window.location.href='checkout.html'">
+        CHECKOUT · $<span id="cartDrawerTotal">0.00</span>
+      </button>
+    </div>
+  </aside>
+
+  <script src="cart.js"></script>
+  <script>
+    const products = [
+      {
+        name: "RHINESTONE",
+        price: "$35.00",
+        image: "Photoroom_20260308_112313__1_-removebg-preview.png",
+        link: "product.html",
+        tags: ["hoodie", "rhinestone", "grey", "gray", "contradict"]
+      },
+      
+    function renderResults(query = "") {
+      const results = document.getElementById("searchResults");
+      const q = query.trim().toLowerCase();
+
+      let filtered = products;
+
+      if (q) {
+        filtered = products.filter(product => {
+          const searchable = [
+            product.name.toLowerCase(),
+            ...product.tags.map(tag => tag.toLowerCase())
+          ];
+          return searchable.some(value => value.includes(q));
+        });
+      }
+
+      if (filtered.length === 0) {
+        results.innerHTML = `<p style="color:#fdd200;">No products found.</p>`;
+        return;
+      }
+
+      results.innerHTML = filtered.map(product => `
+        <article class="shop-product-card">
+          <a href="${product.link}" class="shop-product-image-link">
+            <img src="${product.image}" alt="${product.name}" class="shop-product-image">
+          </a>
+
+          <div class="shop-product-info">
+            <a href="${product.link}" class="shop-product-name">${product.name}</a>
+            <p class="shop-product-price">${product.price}</p>
+          </div>
+        </article>
+      `).join("");
+    }
+
+    document.addEventListener("DOMContentLoaded", () => {
+      renderResults();
+
+      const input = document.getElementById("searchInput");
+      input.addEventListener("input", (e) => {
+        renderResults(e.target.value);
+      });
+    });
+  </script>
+</body>
+</html>
