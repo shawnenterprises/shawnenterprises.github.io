@@ -1428,3 +1428,27 @@ a:hover {
     margin-bottom: 24px;
   }
 }
+
+.policy-page {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 40px 20px;
+  color: #fdd200;
+  background: #000;
+}
+
+.policy-page h1 {
+  font-size: 28px;
+  margin-bottom: 20px;
+}
+
+.policy-page h2 {
+  margin-top: 20px;
+  font-size: 16px;
+}
+
+.policy-page p {
+  font-size: 13px;
+  line-height: 1.6;
+  margin-top: 8px;
+}
