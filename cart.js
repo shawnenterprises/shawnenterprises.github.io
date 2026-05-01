@@ -202,3 +202,24 @@ document.addEventListener("DOMContentLoaded", () => {
   renderCartDrawer();
   renderCartPage();
 });
+
+cart.map(item => `
+  <div class="cart-item">
+    <img src="${item.image}">
+    <div class="cart-item-info">
+      <div class="cart-item-name">${item.name}</div>
+      <div class="cart-item-price">$${item.price}</div>
+      <div class="cart-item-size">Size: ${item.size}</div>
+
+      <div class="cart-qty">
+        <button onclick="decreaseQty(${item.id})">-</button>
+        <span>${item.quantity}</span>
+        <button onclick="increaseQty(${item.id})">+</button>
+      </div>
+
+      <div class="cart-remove" onclick="removeItem(${item.id})">
+        Remove
+      </div>
+    </div>
+  </div>
+`).join("")
