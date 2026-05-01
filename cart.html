@@ -1,84 +1,42 @@
-<!DOCTYPE html>
-<html>
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Cart</title>
-  <link rel="stylesheet" href="style.css">
-</head>
-<body>
+<aside class="cart-drawer" id="cartDrawer">
 
-  <header class="site-nav">
-    <div class="nav-left">
-      <a href="index.html">Home</a>
-      <a href="shop.html">Shop</a>
-      <a href="lookbook.html">Lookbook</a>
-      <a href="about.html">About</a>
-      <a href="contact.html">Contact</a>
+  <!-- HEADER -->
+  <div class="cart-header">
+    <h2>BAG</h2>
+    <button class="cart-close" onclick="closeCartDrawer()">×</button>
+  </div>
+
+  <!-- SHIPPING BAR -->
+  <div class="cart-shipping">
+    <p id="shippingStatusText">Eligible for free shipping</p>
+    <div class="shipping-bar">
+      <div id="shippingProgressBar"></div>
+    </div>
+  </div>
+
+  <!-- ITEMS -->
+  <div class="cart-items" id="cartDrawerItems">
+    <!-- JS injects items here -->
+  </div>
+
+  <!-- FOOTER -->
+  <div class="cart-footer">
+
+    <p class="cart-note">
+      Final product details confirmed at secure checkout.
+    </p>
+
+    <div class="cart-total-row">
+      <span>Total</span>
+      <span id="cartDrawerTotal">$0.00</span>
     </div>
 
-    <div class="nav-center">
-      <a href="index.html" class="logo-link">
-        <img src="Untitled_Project__3_-removebg-preview.png" alt="Contradict" class="logo">
-      </a>
-    </div>
+    <a href="https://square.link/u/PNLSZ50P?src=embed" class="checkout-btn">
+      CONTINUE TO CHECKOUT
+    </a>
 
-    <div class="nav-right">
-      <a href="map.html">City Map</a>
-      <a href="#registry">Citizen Registry</a>
-      <a href="search.html">Search</a>
-      <a href="javascript:void(0)" class="cart-link" onclick="openCartDrawer()">
-        Cart (<span id="cart-count">0</span>)
-      </a>
-    </div>
-  </header>
+  </div>
 
-  <main class="cart-page">
-    <h1>CART</h1>
+</aside>
 
-    <div class="cart-page-header">
-      <div>PRODUCT</div>
-      <div>QUANTITY</div>
-      <div>TOTAL</div>
-    </div>
-
-    <div id="cartPageItems"></div>
-
-    <div class="cart-page-footer">
-  
-    </div>
-  </main>
-
-  <div class="cart-overlay" id="cartOverlay" onclick="closeCartDrawer()"></div>
-  <aside class="cart-drawer" id="cartDrawer">
-    <div class="cart-drawer-header">
-      <h2>CART</h2>
-      <button class="cart-close" onclick="closeCartDrawer()">×</button>
-    </div>
-
-    <div class="shipping-status-wrap">
-      <p class="shipping-status-text" id="shippingStatusText"></p>
-      <div class="shipping-progress">
-        <div class="shipping-progress-bar" id="shippingProgressBar"></div>
-      </div>
-    </div>
-
-    <p class="cart-preview-note">
-  Final size, quantity, and payment are confirmed at secure checkout.
-</p>
-    
-    <div class="cart-drawer-body">
-      <div id="cartDrawerItems"></div>
-    </div>
-
-    <div class="cart-drawer-footer">
-      <p class="cart-tax-note">Taxes &amp; Duties Included</p>
-      <a href="https://square.link/u/PNLSZ50P?src=embed" class="checkout-btn">
-  CONTINUE TO SECURE CHECKOUT
-</a>
-    </div>
-  </aside>
-
-  <script src="cart.js"></script>
-</body>
-</html>
+<div class="cart-overlay" id="cartOverlay" onclick="closeCartDrawer()"></div>
